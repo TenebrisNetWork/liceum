@@ -76,42 +76,6 @@ class Router
                     break;
                 }
 
-            } else {
-
-                //Получаем и составляем имя контроллера.
-                $controllerName = "Error404Controller";
-
-                //Получаем и составляем имя action
-                $actionName = "actionIndex";
-
-                //Получаем параметры запроса
-                $error = "Данной страницы не существует";
-                $parameters = array(
-                    "error" => $error
-                );
-
-                //Подключаем файл класса контроллера
-
-                //Составляем путь к файлу контроллера 
-                $controllerFile = ROOT."/controllers/".$controllerName.".php";
-                //Если существует данный файл, то подключить его
-                if(file_exists($controllerFile))
-                {
-                    include_once($controllerFile);
-                }
-
-                //Создаем объект класса контролллера
-                $controllerObject = new $controllerName;
-
-                //Вызываем action($actionName) с параметрами запроса($parameters)
-                $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
-
-                //Если результат получен, то прекратить выполнение
-                if($result != NULL)
-                {
-                    break;
-                }
-
             }
         }
     }
