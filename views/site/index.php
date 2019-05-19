@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,13 @@
             <?php echo $newsItem["NewsContent"]?>
         </div>
         <?php endforeach;?>
+
+        <h1><?php
+        //$user = $_SESSION['user'];
+        //$user = unserialize($user);
+        //echo $user['login'];
+        echo $_SESSION['login_in'];
+        ?></h1>
 
 </body>
 </html>
